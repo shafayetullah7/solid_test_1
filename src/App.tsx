@@ -1,10 +1,17 @@
-import type { Component } from 'solid-js';
+import { createEffect, createSignal, type Component } from 'solid-js';
+import { Counter } from './components/Counter';
 
 const App: Component = () => {
+
+  const handler = (data: string, event: Event) => {
+    console.log(data, event);
+  }
+
   return (
-    <div>
-      <h1 class='text-red-500 text-4xl'>Hello World</h1>
-      <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
+    <div class='w-full'>
+      <Counter></Counter>
+      <Counter></Counter>
+      <button onClick={[handler, 'clicked now']}>Click me</button>
     </div>
   );
 };
